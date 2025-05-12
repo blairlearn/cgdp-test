@@ -28,3 +28,32 @@ updates:
     ignore:
       - dependency-name: "*"
         update-types: ["version-update:semver-minor", "version-update:semver-patch"]
+
+  # Monthly check for NCIDS theme NPM updates
+  - package-ecosystem: "npm"
+    directory: "/docroot/profiles/custom/cgov_site/themes/custom/ncids_trans/front-end"
+    schedule:
+      interval: "monthly"
+    prefix-commits: true
+    commit-message:
+      prefix: "ncids theme"
+    group-by: "update-type"
+    labels:
+      - "npm"
+      - "dependencies"
+
+  # Weekly check for NCIDS theme NPM security updates
+  - package-ecosystem: "npm"
+    directory: "/docroot/profiles/custom/cgov_site/themes/custom/ncids_trans/front-end"
+    schedule:
+      interval: "weekly"
+    prefix-commits: true
+    commit-message:
+      prefix: "ncids theme"
+    group-by: "update-type"
+    labels:
+      - "npm"
+      - "security"
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-minor", "version-update:semver-patch"]
