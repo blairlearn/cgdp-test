@@ -1,0 +1,30 @@
+version: 2
+
+updates:
+  # Monthly check for PHP dependency updates.
+  - package-ecosystem: "composer"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    prefix-commits: true
+    commit-message:
+      prefix: "PHP package updates"
+    labels:
+      - "php"
+      - "dependencies"
+
+  # Weekly check for PHP security updates.
+  - package-ecosystem: "composer"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    prefix-commits: true
+    commit-message:
+      prefix: "PHP security updates"
+    labels:
+      - "php"
+      - "security"
+    # Only process security updates, ignore version updates.
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-minor", "version-update:semver-patch"]
