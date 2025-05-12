@@ -82,16 +82,16 @@
   "dependencies": {
     "@nciocpl/ncids-css": "^3.3.0",
     "@nciocpl/ncids-js": "^3.3.0",
-    "axios": "^0.25.0",
-    "body-scroll-lock": "^2.7.1",
-    "extend": "~1.2.1",
+    "axios": "^1.9.0",
+    "body-scroll-lock": "^3.1.5",
+    "extend": "~3.0.2",
     "geopattern": "~1.2.3",
     "jquery-touchswipe": "^1.6.19",
-    "js-cookie": "~2.2.1",
-    "query-string": "~5.1.1",
+    "js-cookie": "~3.0.5",
+    "query-string": "~9.1.2",
     "slick-carousel": "~1.8.1",
     "sortabletables-js": "^0.1.6",
-    "throttle-debounce": "~2.3.0"
+    "throttle-debounce": "~5.0.2"
   },
   "overrides": {
     "prettier": "2.5.1"
