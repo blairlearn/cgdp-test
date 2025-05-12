@@ -23,20 +23,3 @@ updates:
     # Don't try to update Drupal core.
     ignore:
       - dependency-name: "drupal/core-*"
-
-
-  # Monthly check for NCIDS theme NPM updates
-  - package-ecosystem: "npm"
-    directory: "/docroot/profiles/custom/cgov_site/themes/custom/ncids_trans/front-end"
-    schedule:
-      interval: "weekly"
-    commit-message:
-      prefix: "ncids theme"
-    groups:
-      ncids-dependencies:
-        dependency-type: "production"
-        applies-to: "version-updates"
-      ncids-security:
-        dependency-type: "production"
-        applies-to: "security-updates"
-
