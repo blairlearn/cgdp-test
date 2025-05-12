@@ -11,7 +11,6 @@ updates:
       day: "thursday"
       time: "05:00"
       timezone: "America/New_York"
-    prefix-commits: true
     commit-message:
       prefix: "PHP package updates"
     groups:
@@ -28,7 +27,6 @@ updates:
     directory: "/docroot/profiles/custom/cgov_site/themes/custom/ncids_trans/front-end"
     schedule:
       interval: "weekly"
-    prefix-commits: true
     commit-message:
       prefix: "ncids theme"
     groups:
