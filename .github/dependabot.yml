@@ -20,6 +20,9 @@ updates:
       composer-security:
         dependency-type: "production"
         applies-to: "security-updates"
+    # Don't try to update Drupal core.
+    ignore:
+      - dependency-name: "drupal/core-*"
 
 
   # Monthly check for NCIDS theme NPM updates
