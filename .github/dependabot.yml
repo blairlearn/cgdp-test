@@ -1,31 +1,41 @@
 version: 2
 
 updates:
-  # Monthly check for PHP dependency updates.
+
+  # Weekly check for PHP dependency updates.
   - package-ecosystem: "composer"
     directory: "/"
     schedule:
-      interval: "monthly"
+      # The morning after Drupal security releases.
+      interval: "weekly"
+      day: "thursday"
+      time: "05:00"
+      timezone: "America/New_York"
     prefix-commits: true
     commit-message:
       prefix: "PHP package updates"
-    labels:
-      - "php"
-      - "dependencies"
+    groups:
+      composer-dependencies:
+        dependency-type: "production"
+        applies-to: "version-updates"
+      composer-security:
+        dependency-type: "production"
+        applies-to: "security-updates"
 
-  # Weekly check for PHP security updates.
-  - package-ecosystem: "composer"
-    directory: "/"
+
+  # Monthly check for NCIDS theme NPM updates
+  - package-ecosystem: "npm"
+    directory: "/docroot/profiles/custom/cgov_site/themes/custom/ncids_trans/front-end"
     schedule:
       interval: "weekly"
     prefix-commits: true
     commit-message:
-      prefix: "PHP security updates"
-    labels:
-      - "php"
-      - "security"
-    # Only process security updates, ignore version updates.
-    ignore:
-      - dependency-name: "*"
-        update-types: ["version-update:semver-minor", "version-update:semver-patch"]
+      prefix: "ncids theme"
+    groups:
+      ncids-dependencies:
+        dependency-type: "production"
+        applies-to: "version-updates"
+      ncids-security:
+        dependency-type: "production"
+        applies-to: "security-updates"
 
